@@ -22,8 +22,7 @@ For more information, please refer to [wiki page](http://www.seeedstudio.com/wik
 
 ----
 
-
-This software is written by Jacobyan[jacob.yan@seeedstudio.com](jacob.yan@seeedstudio.com "jacob.yan@seeedstudio.com") for seeed studio<br>
+This software is written by Jacobyan[![jacob.yan@seeedstudio.com](https://github.com/jacobyan/images/blob/master/2081333534.Png) ]for seeed studio<br>
 and is licensed under [The MIT License](http://opensource.org/licenses/mit-license.php). Check License.txt for more information.<br>
 
 Contributing to this software is warmly welcomed. You can do this basically by<br>
