@@ -1,11 +1,11 @@
 /*
- * Ultrasonic.h
+ * Ultrasonic_Suli.h
  * A library for ultrasonic ranger
  *
  * Copyright (c) 2012 seeed technology inc.
  * Website    : www.seeed.cc
- * Author     : LG, FrankieChu
- * Create Time: Jan 17,2013
+ * Author     : jacobyan
+ * Create Time: AUG,2014
  * Change Log :
  *
  * The MIT License (MIT)
@@ -28,31 +28,17 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-#ifndef Ultrasonic_H
-#define Ultrasonic_H
+#ifndef __Ultrasonic_Suli_h__
+#define __Ultrasonic_Suli_h__
 
-#include "Arduino.h"
-#include <Wire.h>
-#include <SoftwareSerial.h>
+
 #include "Suli.h"
 
-
-
-
-class Ultrasonic
-{
-	public:
+void Ultrasonic_init(int pin);
+long MeasureInCentimeters(void);
+long MeasureInInches(void);
 		
 		
 		
-		Ultrasonic(int pin);
-		long MeasureInCentimeters(void);
-		long MeasureInInches(void);
 		
-	private:
-		IO_T ioUltrasonic;
-		PIN_T pinUltrasonic;
-		//int _pin;//pin number of Arduino that is connected with SIG pin of Ultrasonic Ranger.
-};
-
 #endif

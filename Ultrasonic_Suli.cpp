@@ -1,11 +1,11 @@
 /*
- * Ultrasonic.cpp
+ * Ultrasonic_Suli.cpp
  * A library for ultrasonic ranger
  *
  * Copyright (c) 2012 seeed technology inc.
  * Website    : www.seeed.cc
- * Author     : LG, FrankieChu
- * Create Time: Jan 17,2013
+ * Author     : jacobyan
+ * Create Time: AUG,2014
  * Change Log :
  *
  * The MIT License (MIT)
@@ -28,55 +28,53 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-#include <stdio.h>
-#include <string.h>
-#include <inttypes.h>
-#include "Arduino.h"
-#include "Ultrasonic.h"
+
+#include "Ultrasonic_Suli.h"
 
 
 
-Ultrasonic::Ultrasonic(int pin)
+IO_T 	ioUltrasonic;
+PIN_T 	pinUltrasonic;
+
+void Ultrasonic_init(int pin)
 {
 	pinUltrasonic = pin;
 	suli_pin_init(&ioUltrasonic,pinUltrasonic);
 }
+
+
+
 /*The measured distance from the range 0 to 400 Centimeters*/
-long Ultrasonic::MeasureInCentimeters(void)
+long MeasureInCentimeters(void)
 {
-	suli_pin_dir(&ioUltrasonic,HAL_PIN_OUTPUT);
 	
+	suli_pin_dir(&ioUltrasonic,HAL_PIN_OUTPUT);
 	suli_pin_write(&ioUltrasonic,HAL_PIN_LOW);
 	suli_delay_ms(2);
 	suli_pin_write(&ioUltrasonic,HAL_PIN_HIGH);
 	suli_delay_ms(5);
 	suli_pin_write(&ioUltrasonic,HAL_PIN_LOW);
-	
-	
 	suli_pin_dir(&ioUltrasonic,HAL_PIN_INPUT);
-	
-	
 	long duration;
 	duration=suli_pulse_in(&ioUltrasonic,HAL_PIN_HIGH,10000);
 	long RangeInCentimeters;
 	RangeInCentimeters = duration/29/2;
 	return RangeInCentimeters;
 }
+
+
+
+
 /*The measured distance from the range 0 to 157 Inches*/
-long Ultrasonic::MeasureInInches(void)
+long MeasureInInches(void)
 {
 	suli_pin_dir(&ioUltrasonic,HAL_PIN_OUTPUT);
-	
 	suli_pin_write(&ioUltrasonic,HAL_PIN_LOW);
 	suli_delay_ms(2);
 	suli_pin_write(&ioUltrasonic,HAL_PIN_HIGH);
 	suli_delay_ms(5);
 	suli_pin_write(&ioUltrasonic,HAL_PIN_LOW);
-	
-	
 	suli_pin_dir(&ioUltrasonic,HAL_PIN_INPUT);
-	
-	
 	long duration;
 	duration=suli_pulse_in(&ioUltrasonic,HAL_PIN_HIGH,10000);
 	long RangeInInches;

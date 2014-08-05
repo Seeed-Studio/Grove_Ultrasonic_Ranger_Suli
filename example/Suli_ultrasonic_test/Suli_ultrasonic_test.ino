@@ -1,5 +1,5 @@
 /*
- * UltrasonicDisplayOnTerm.ino
+ * Suli_ultrasonic_test.ino
  * Example sketch for ultrasonic ranger
  *
  * Copyright (c) 2012 seeed technology inc.
@@ -38,23 +38,26 @@
 //	Arduino IDE: Arduino-1.0
 /*****************************************************************************/
 
-#include "Ultrasonic.h"
+
 #include <Wire.h>
 #include <SoftwareSerial.h>
+
 #include "Suli.h"
+#include "Ultrasonic_arduino.h"
+#include "Ultrasonic_Suli.h"
 
 
-Ultrasonic ultrasonic(7);
 void setup()
 {
 	Serial.begin(9600);
+	Ultrasonic_init(7);
 }
 void loop()
 {
 	long RangeInInches;
 	long RangeInCentimeters;
-	RangeInInches = ultrasonic.MeasureInInches();
-	RangeInCentimeters = ultrasonic.MeasureInCentimeters();
+	RangeInInches = MeasureInInches();
+	RangeInCentimeters = MeasureInCentimeters();
 	Serial.println("The distance to obstacles in front is: ");
 	Serial.print(RangeInInches);//0~157 inches
 	Serial.println(" inch");
