@@ -31,11 +31,67 @@
 class Ultrasonic
 {
 	public:
-		Ultrasonic(int pin);
-		long MeasureInCentimeters(void);
-		long MeasureInInches(void);
+		Ultrasonic(int pin)
+		{
+			_pin = pin;
+		}
+		
+		
+		
+		
+		long MeasureInCentimeters(void)
+			{
+				pinMode(_pin, OUTPUT);
+				digitalWrite(_pin, LOW);
+				delayMicroseconds(2);
+				digitalWrite(_pin, HIGH);
+				delayMicroseconds(5);
+				digitalWrite(_pin,LOW);
+				pinMode(_pin,INPUT);
+				long duration;
+				duration = pulseIn(_pin,HIGH);
+				long RangeInCentimeters;
+				RangeInCentimeters = duration/29/2;
+				return RangeInCentimeters;
+			}		
+		
+		
+		
+		
+		long MeasureInInches(void)
+			{
+				pinMode(_pin, OUTPUT);
+				digitalWrite(_pin, LOW);
+				delayMicroseconds(2);
+				digitalWrite(_pin, HIGH);
+				delayMicroseconds(5);
+				digitalWrite(_pin,LOW);
+				pinMode(_pin,INPUT);
+				long duration;
+				duration = pulseIn(_pin,HIGH);
+				long RangeInInches;
+				RangeInInches = duration/74/2;
+				return RangeInInches;
+			}		
+		
+		
+		
 	private:
 		int _pin;//pin number of Arduino that is connected with SIG pin of Ultrasonic Ranger.
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif
