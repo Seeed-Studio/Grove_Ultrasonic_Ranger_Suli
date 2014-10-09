@@ -37,4 +37,4 @@ Seeed is a hardware innovation platform for makers to grow inspirations into dif
 
 
 
-[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Bluetooth_Shield_Demo_Code)](https://github.com/igrigorik/ga-beacon)
+[![Analytics](https://ga-beacon.appspot.com/UA-46589105-3/Grove_Ultrasonic_Ranger_Suli)](https://github.com/igrigorik/ga-beacon)
